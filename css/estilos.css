@@ -1,0 +1,913 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+/*Todos los elementos*/
+* {
+    margin: 0; /* Elimina el margen predeterminado de todos los elementos */
+    padding: 0;  /* Elimina el relleno predeterminado de todos los elementos */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total del elemento */
+    text-decoration: none;  /* Elimina la decoración del texto, como subrayados en enlaces */
+    border: none;   /* Elimina cualquier borde predeterminado */
+    scroll-behavior: smooth;   /* Habilita el desplazamiento suave en la página */
+    font-family: 'Poppins', sans-serif;  /* Establece la fuente predeterminada para todos los elementos */
+}
+:root {
+    --bg--color: #000000;
+    --second-bg--color: #161616;
+    --text--color:#fff;
+    --main--color:#7b44b7;
+}
+html {
+    font-size: 62.5%; /* Establece el tamaño de la fuente base al 62.5% del tamaño predeterminado del navegador (normalmente 16px), lo que equivale a 10px. Esto facilita el uso de unidades rem para tamaños de fuente y otros elementos, ya que 1rem será igual a 10px. */
+    overflow-x: hidden ; /* Oculta cualquier desbordamiento horizontal, evitando que aparezca una barra de desplazamiento horizontal si el contenido se desborda. */
+    height: 100%;  /* Oculta cualquier desbordamiento horizontal, evitando que aparezca una barra de desplazamiento horizontal si el contenido se desborda. */
+}
+/*Cuerpo*/
+body {
+    position: relative;
+    flex: 1; /* Permite que el elemento body crezca y ocupe el espacio disponible en un contenedor flex */
+    background: var(--bg--color); /* Establece el color de fondo del body utilizando la variable CSS --bg--color */
+    font-family: "Poppins", sans-serif; /* Establece la fuente del texto del body como 'Poppins', con 'sans-serif' como respaldo */
+    color: var(--text--color); /* Establece el color del texto del body utilizando la variable CSS --text--color */
+    height: auto; /* Permite que la altura del body se ajuste automáticamente al contenido */
+    width: 100%; /* Establece el ancho del body al 100% del contenedor */
+    padding-bottom: 60em;
+}
+html::-webkit-scrollbar {
+    width: 0.8rem; /* Establece el ancho de la barra de desplazamiento a 0.8rem */
+ }
+ 
+ html::-webkit-scrollbar-track {
+     background: var(--bg--color); /* Establece el color de fondo de la pista de la barra de desplazamiento utilizando la variable CSS --bg--color */
+ }
+ 
+ html::-webkit-scrollbar-thumb {
+     background: var(--main--color); /* Establece el color del pulgar de la barra de desplazamiento utilizando la variable CSS --main--color */
+ }
+/*Cabecera*/
+.header {
+    position: fixed; /* Fija la posición del elemento en la parte superior de la página, incluso cuando se desplaza */
+    top: 0; /* Coloca el elemento en la parte superior de la ventana */
+    left: 0; /* Coloca el elemento en el borde izquierdo de la ventana */
+    width: 100%; /* Establece el ancho del elemento al 100% del contenedor */
+    padding: 3rem 9%; /* Añade un relleno de 3rem en la parte superior e inferior y 9% en los lados */
+    background: rgba(34, 34, 34, 0.7); /* Establece un color de fondo con transparencia (negro con opacidad del 70%) */
+    filter: drop-shadow(10px); /* Aplica una sombra de caída al elemento */
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    justify-content: space-between; /* Distribuye el espacio sobrante entre los elementos hijos, colocando uno al principio y otro al final */
+    align-items: center; /* Alinea los elementos hijos verticalmente en el centro */
+    z-index: 100; /* Establece la prioridad de apilamiento del elemento, asegurando que se superponga a otros elementos con un z-index menor */
+}
+.nav a:hover {
+    color: var(--main--color); /* Cambia el color del enlace al color principal definido en la variable CSS --main--color cuando el usuario pasa el cursor sobre él */
+}
+.navbar a {
+    font-size: 1.8rem; /* Establece el tamaño de la fuente de los enlaces de la barra de navegación a 1.8rem */
+    color: var(--text--color); /* Establece el color del texto de los enlaces utilizando la variable CSS --text--color */
+    margin-left: 4rem; /* Añade un margen izquierdo de 4rem a los enlaces para separarlos entre sí */
+    font-weight: 500; /* Establece el peso de la fuente de los enlaces a 500 (semi-negrita) */
+    transition: 0.3s ease; /* Añade una transición suave de 0.3 segundos para cualquier cambio de estilo */
+    border-bottom: 3px solid transparent; /* Establece un borde inferior transparente de 3px para los enlaces */
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main--color); /* Cambia el color del texto de los enlaces al color principal definido en la variable CSS --main--color cuando el usuario pasa el cursor sobre ellos o cuando están activos */
+    border-bottom: 3px solid var(--main--color); /* Cambia el borde inferior de los enlaces al color principal definido en la variable CSS --main--color cuando el usuario pasa el cursor sobre ellos o cuando están activos */
+}
+
+/*Logo*/
+.logo {
+    font-size: 3rem; /* Establece el tamaño de la fuente del logo a 3rem */
+    color: var(--main--color); /* Establece el color del logo utilizando la variable CSS --main--color */
+    font-weight: 800; /* Establece el peso de la fuente del logo a 800 (negrita) */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando el usuario pasa el cursor sobre el logo, indicando que es interactivo */
+    transition: 0.5s ease; /* Añade una transición suave de 0.5 segundos para cualquier cambio de estilo */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del logo en un 10% cuando el usuario pasa el cursor sobre él */
+}
+/*Menu Principal*/
+/*Iconos*/
+#menu-icon {
+    font-size: 3.6rem; /* Establece el tamaño de la fuente del icono del menú a 3.6rem */
+    color: var(--main--color); /* Establece el color del icono del menú utilizando la variable CSS --main--color */
+    display: none; /* Oculta el icono del menú por defecto */
+}
+
+/*Section*/
+section {
+    min-height: 0.25vh; /* Establece la altura mínima de la sección a 0.25vh */
+    padding: 5rem 9% 5rem; /* Añade un relleno de 5rem en la parte superior e inferior y 9% en los lados */
+    bottom: 10px; /* Añade un margen inferior de 10px */
+}
+
+/*Descripción*/
+.home {
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    gap: 8rem; /* Añade un espacio de 8rem entre los elementos */
+    background: var(--bg--color); /* Establece el color de fondo utilizando la variable CSS --bg--color */
+}
+
+.home-content {
+    margin-top: 40px; /* Añade un margen superior de 40px */
+    
+}
+.home .home-content h1 {
+    font-size: 6rem; /* Establece el tamaño de la fuente del título a 6rem */
+    font-weight: 700; /* Establece el peso de la fuente del título a 700 (negrita) */
+    line-height: 1.3; /* Establece la altura de línea del título a 1.3 */
+}
+span {
+    color: var(--main--color); /* Establece el color del texto utilizando la variable CSS --main--color */
+}
+
+.home-content h3 {
+    font-size: 4rem; /* Establece el tamaño de la fuente del subtítulo a 4rem */
+    margin-bottom: 1rem; /* Añade un margen inferior de 1rem */
+    font-weight: 700; /* Establece el peso de la fuente del subtítulo a 700 (negrita) */
+}
+
+.home-img {
+    border-radius: 50%; /* Redondea las esquinas de la imagen al 50%, haciéndola circular */
+}
+
+.home-img img {
+    position: relative; /* Posiciona la imagen de forma relativa */
+    width: 32vw; /* Establece el ancho de la imagen al 32% del ancho de la ventana */
+    border-radius: 50%; /* Redondea las esquinas de la imagen al 50%, haciéndola circular */
+    box-shadow: 0 0 25px var(--main--color); /* Añade una sombra a la imagen con el color principal */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando el usuario pasa el cursor sobre la imagen */
+}
+
+.home-img img:hover {
+    transform: scale(1.01); /* Aumenta el tamaño de la imagen en un 1% cuando el usuario pasa el cursor sobre ella */
+    filter: drop-shadow(0 0 25px var(--main--color)); /* Aplica una sombra de caída a la imagen con el color principal */
+}
+
+.home-content p {
+    font-size: 1.8rem; /* Establece el tamaño de la fuente del párrafo a 1.8rem */
+    font-weight: 500; /* Establece el peso de la fuente del párrafo a 500 (semi-negrita) */
+}
+
+.column {
+    display: grid; /* Utiliza el modelo de caja de cuadrícula para el diseño del contenido */
+    gap: 0.5em; /* Añade un espacio de 0.5em entre los elementos */
+}
+
+/*Inicio*/
+.txt {
+    height: 0.10em; /* Establece la altura a 0.10em */
+    width: 100%; /* Establece el ancho al 100% */
+    background: var(--bg--color); /* Establece el color de fondo utilizando la variable CSS --bg--color */
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+.skills {
+    position: relative; /* Posiciona el elemento de forma relativa */
+    width: 320px; /* Establece el ancho a 320px */
+    background: rgba(0, 0, 0, 0.2); /* Establece el color de fondo con transparencia (negro con opacidad del 20%) */
+    padding: 0 20px; /* Añade un relleno de 20px en los lados */
+    top: 150px; /* Desplaza el elemento 150px hacia abajo */
+}
+
+.skills .skill {
+    margin: 20px 0; /* Añade un margen de 20px en la parte superior e inferior */
+}
+
+.skills .skill p {
+    width: 100%; /* Establece el ancho al 100% */
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    justify-content: space-between; /* Distribuye el espacio sobrante entre los elementos hijos */
+}
+
+.skills .skill .progress {
+    position: relative; /* Posiciona el elemento de forma relativa */
+    width: 100%; /* Establece el ancho al 100% */
+    height: 6px; /* Establece la altura a 6px */
+    background: #999; /* Establece el color de fondo a #999 */
+    border-radius: 6px; /* Redondea las esquinas del elemento */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+    margin: 5px 0; /* Añade un margen de 5px en la parte superior e inferior */
+}
+
+.skills .skill .progress::before {
+    content: ''; /* Añade contenido vacío */
+    position: absolute; /* Posiciona el elemento de forma absoluta */
+    width: var(--wth); /* Establece el ancho utilizando la variable CSS --wth */
+    height: 100%; /* Establece la altura al 100% */
+    background: #a808a3; /* Establece el color de fondo a #a808a3 */
+}
+
+/*Redes Sociales*/
+.social-icon a {
+    display: inline-flex; /* Utiliza el modelo de caja flexible en línea para el diseño del contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    width: 4rem; /* Establece el ancho de los iconos a 4rem */
+    height: 4rem; /* Establece la altura de los iconos a 4rem */
+    background: transparent; /* Establece el fondo de los iconos como transparente */
+    border: 0.2rem solid var(--main--color); /* Añade un borde de 0.2rem con el color principal */
+    font-size: 2rem; /* Establece el tamaño de la fuente de los iconos a 2rem */
+    border-radius: 50%; /* Redondea las esquinas de los iconos al 50%, haciéndolos circulares */
+    color: var(--main--color); /* Establece el color del texto de los iconos utilizando la variable CSS --main--color */
+    margin: 3rem 1.5rem 3rem 0; /* Añade un margen de 3rem en la parte superior e inferior y 1.5rem en los lados */
+    transition: 0.3s ease; /* Añade una transición suave de 0.3 segundos para cualquier cambio de estilo */
+}
+
+.social-icon a:hover {
+    color: black; /* Cambia el color del texto de los iconos a negro cuando el usuario pasa el cursor sobre ellos */
+    transform: scale(1.3) translateY(-5px); /* Aumenta el tamaño de los iconos en un 30% y los desplaza 5px hacia arriba cuando el usuario pasa el cursor sobre ellos */
+    background: var(--main--color); /* Cambia el fondo de los iconos al color principal cuando el usuario pasa el cursor sobre ellos */
+    box-shadow: 0 0 25px var(--main--color); /* Añade una sombra a los iconos con el color principal cuando el usuario pasa el cursor sobre ellos */
+}
+
+.list {
+    list-style: none; /* Elimina los estilos de lista predeterminados */
+}
+
+.btn {
+    display: inline-block; /* Hace que el botón sea un elemento en línea con comportamiento de bloque */
+    padding: 1rem 2.8rem; /* Añade un relleno de 1rem en la parte superior e inferior y 2.8rem en los lados */
+    background: var(--bg--color); /* Establece el color de fondo del botón utilizando la variable CSS --bg--color */
+    border-radius: 4rem; /* Redondea las esquinas del botón */
+    font-size: 1.6rem; /* Establece el tamaño de la fuente del botón a 1.6rem */
+    color: var(--main--color); /* Establece el color del texto del botón utilizando la variable CSS --main--color */
+    border: 2px solid var(--main--color); /* Añade un borde de 2px con el color principal */
+    letter-spacing: 0.1rem; /* Añade un espaciado entre letras de 0.1rem */
+    font-weight: 600; /* Establece el peso de la fuente del botón a 600 (semi-negrita) */
+    transition: 0.3s ease; /* Añade una transición suave de 0.3 segundos para cualquier cambio de estilo */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando el usuario pasa el cursor sobre el botón */
+}
+
+
+.btn:hover {
+    transform: scale(1.03); /* Aumenta el tamaño del botón en un 3% cuando el usuario pasa el cursor sobre él */
+    background-color: var(--main--color); /* Cambia el color de fondo del botón al color principal cuando el usuario pasa el cursor sobre él */
+    color: black; /* Cambia el color del texto del botón a negro cuando el usuario pasa el cursor sobre él */
+    box-shadow: 0 0 25px var(--main--color); /* Añade una sombra al botón con el color principal cuando el usuario pasa el cursor sobre él */
+}
+
+@keyframes cursor {
+    to {
+        border-left: 3px solid var(--main--color); /* Añade un borde izquierdo de 3px con el color principal */
+    }
+}
+
+@keyframes words {
+    0%, 20% {
+        content: 'Web Developer'; /* Muestra 'Web Developer' del 0% al 20% del tiempo de la animación */
+    }
+    21%, 40% {
+        content: 'Software Developer'; /* Muestra 'Software Developer' del 21% al 40% del tiempo de la animación */
+    }
+    41%, 60% {
+        content: 'Web Designer'; /* Muestra 'Web Designer' del 41% al 60% del tiempo de la animación */
+    }
+    61%, 80% {
+        content: 'SEO'; /* Muestra 'SEO' del 61% al 80% del tiempo de la animación */
+    }
+}
+
+@keyframes typing {
+    10%, 15%,
+    30%, 35%,
+    50%, 55%,
+    70%, 75%,
+    90%, 95% {
+        width: 0; /* Establece el ancho a 0 en los intervalos especificados */
+    }
+    5%, 20%,
+    25%, 40%,
+    45%, 60%,
+    65%, 80%, 85% {
+        width: calc(100% + 8px); /* Establece el ancho al 100% más 8px en los intervalos especificados */
+    }
+}
+
+
+.majormajor {
+    justify-content: center; /* Centra el contenido horizontalmente */
+    text-align: center;
+    min-height: 200px; /* Establece la altura mínima a 200px */
+    font-size: 1.5rem; /* Establece el tamaño de la fuente a 1.5rem */
+    background-color: var(--main--color); /* Establece el color de fondo utilizando la variable CSS --main--color */
+}
+
+.major1 {
+    display: grid; /* Utiliza el modelo de caja de cuadrícula para el diseño del contenido */
+    padding-top: 5px; /* Añade un relleno superior de 5px */
+}
+
+.major1 h2 {
+    background-color: var(--main--color); /* Establece el color de fondo utilizando la variable CSS --main--color */
+}
+
+/*Servicios*/
+
+.services {
+    background-color: var(--bg--color);
+    color: #000000;
+}
+
+.services-container {
+    display: grid; /* Utiliza el modelo de caja de cuadrícula para el diseño del contenido */
+    grid-template-columns: repeat(3, 1fr); /* Establece una cuadrícula con 3 columnas de igual tamaño */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    gap: 2.5rem; /* Añade un espacio de 2.5rem entre los elementos */
+    margin-top: 60px; /* Añade un margen superior de 60px */
+}
+
+.service-box {
+    background-color: var(--main--color); /* Establece el color de fondo utilizando la variable CSS --main--color */
+    height: 300px; /* Establece la altura a 300px */
+    border-radius: 3rem; /* Redondea las esquinas del elemento */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando el usuario pasa el cursor sobre el elemento */
+    transition: 0.3s ease; /* Añade una transición suave de 0.3 segundos para cualquier cambio de estilo */
+}
+
+.service-box:hover {
+    background: white; /* Cambia el color de fondo a blanco cuando el usuario pasa el cursor sobre el elemento */
+    color: var(--main--color); /* Cambia el color del texto utilizando la variable CSS --main--color */
+    transform: scale(1.03); /* Aumenta el tamaño del elemento en un 3% cuando el usuario pasa el cursor sobre él */
+    border: 1px solid var(--main--color); /* Añade un borde de 1px con el color principal */
+}
+
+.service-box .service-info {
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    flex-direction: column; /* Establece la dirección del diseño a columna */
+    text-align: left; /* Alinea el texto a la izquierda */
+    max-height: 300px; /* Establece la altura máxima a 300px */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 5rem; /* Añade un relleno de 5rem */
+}
+
+.service-info h4 {
+    font-size: 2.5rem; /* Establece el tamaño de la fuente a 2.5rem */
+    font-weight: 500; /* Establece el peso de la fuente a 500 (semi-negrita) */
+}
+
+/*Section*/
+section {
+    min-height: 0.25vh; /* Establece la altura mínima de la sección a 0.25vh */
+    padding: 5rem 9% 5rem; /* Añade un relleno de 5rem en la parte superior e inferior y 9% en los lados */
+    bottom: 10px; /* Añade un margen inferior de 10px */
+}
+
+/*Descripción*/
+.home {
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    gap: 8rem; /* Añade un espacio de 8rem entre los elementos */
+    background: var(--bg--color); /* Establece el color de fondo utilizando la variable CSS --bg--color */
+}
+.home-content {
+    margin-top: 40px; /* Añade un margen superior de 40px */
+}
+.home .home-content h1 {
+    font-size: 6rem; /* Establece el tamaño de la fuente del título a 6rem */
+    font-weight: 700; /* Establece el peso de la fuente del título a 700 (negrita) */
+    line-height: 1.3; /* Establece la altura de línea del título a 1.3 */
+}
+span {
+    color: var(--main--color); /* Establece el color del texto utilizando la variable CSS --main--color */
+}
+.home-content h3 {
+    font-size: 4rem; /* Establece el tamaño de la fuente del subtítulo a 4rem */
+    margin-bottom: 1rem; /* Añade un margen inferior de 1rem */
+    font-weight: 700; /* Establece el peso de la fuente del subtítulo a 700 (negrita) */
+}
+.home-img {
+    border-radius: 50%; /* Redondea las esquinas de la imagen al 50%, haciéndola circular */
+}
+.home-img img {
+    position: relative; /* Posiciona la imagen de forma relativa */
+    width: 32vw; /* Establece el ancho de la imagen al 32% del ancho de la ventana */
+    border-radius: 50%; /* Redondea las esquinas de la imagen al 50%, haciéndola circular */
+    box-shadow: 0 0 25px var(--main--color); /* Añade una sombra a la imagen con el color principal */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando el usuario pasa el cursor sobre la imagen */
+}
+.home-img img:hover {
+    transform: scale(1.01); /* Aumenta el tamaño de la imagen en un 1% cuando el usuario pasa el cursor sobre ella */
+    filter: drop-shadow(0 0 25px var(--main--color)); /* Aplica una sombra de caída a la imagen con el color principal */
+}
+.home-content p {
+    font-size: 1.8rem; /* Establece el tamaño de la fuente del párrafo a 1.8rem */
+    font-weight: 500; /* Establece el peso de la fuente del párrafo a 500 (semi-negrita) */
+}
+.column {
+    display: grid; /* Utiliza el modelo de caja de cuadrícula para el diseño del contenido */
+    gap: 0.5em; /* Añade un espacio de 0.5em entre los elementos */
+}
+
+
+
+
+
+
+
+@keyframes cursor {
+    to {
+        border-left: 3px solid var(--main--color); /* Añade un borde izquierdo de 3px con el color principal */
+    }
+}
+
+@keyframes words {
+    0%, 20% {
+        content: 'Web Developer'; /* Muestra 'Web Developer' del 0% al 20% del tiempo de la animación */
+    }
+    21%, 40% {
+        content: 'Software Developer'; /* Muestra 'Software Developer' del 21% al 40% del tiempo de la animación */
+    }
+    41%, 60% {
+        content: 'Web Designer'; /* Muestra 'Web Designer' del 41% al 60% del tiempo de la animación */
+    }
+    61%, 80% {
+        content: 'SEO'; /* Muestra 'SEO' del 61% al 80% del tiempo de la animación */
+    }
+}
+
+@keyframes typing {
+    10%, 15%,
+    30%, 35%,
+    50%, 55%,
+    70%, 75%,
+    90%, 95% {
+        width: 0; /* Establece el ancho a 0 en los intervalos especificados */
+    }
+    5%, 20%,
+    25%, 40%,
+    45%, 60%,
+    65%, 80%, 85% {
+        width: calc(100% + 8px); /* Establece el ancho al 100% más 8px en los intervalos especificados */
+    }
+}
+
+@media (max-width: 1000px) {
+    .home {
+        gap: 4rem; /* Reduce el espacio entre los elementos a 4rem cuando el ancho de la pantalla es menor o igual a 1000px */
+    }
+}
+
+@media (max-width: 995px) {
+    .home {
+        flex-direction: column; /* Cambia la dirección del diseño a columna cuando el ancho de la pantalla es menor o igual a 995px */
+        margin: 5rem 4rem; /* Añade un margen de 5rem en la parte superior e inferior y 4rem en los lados */
+    }
+    .home .home-content h3 {
+        font-size: 2.5rem; /* Reduce el tamaño de la fuente del subtítulo a 2.5rem */
+    }
+    .home-content h1 {
+        font-size: 5rem; /* Reduce el tamaño de la fuente del título a 5rem */
+    }
+    .home-img img {
+        width: 70vw; /* Establece el ancho de la imagen al 70% del ancho de la ventana */
+        margin-top: 4rem; /* Añade un margen superior de 4rem */
+    }
+}
+
+.majormajor {
+    justify-content: center; /* Centra el contenido horizontalmente */
+    min-height: 200px; /* Establece la altura mínima a 200px */
+    font-size: 1.5rem; /* Establece el tamaño de la fuente a 1.5rem */
+    background-color: var(--main--color); /* Establece el color de fondo utilizando la variable CSS --main--color */
+}
+
+.major1 {
+    display: grid; /* Utiliza el modelo de caja de cuadrícula para el diseño del contenido */
+    padding-top: 5px; /* Añade un relleno superior de 5px */
+}
+
+.major1 h2 {
+    background-color: var(--main--color); /* Establece el color de fondo utilizando la variable CSS --main--color */
+}
+
+/*Servicios*/
+.services {
+    background: var(--second-bg--color); /* Establece el color de fondo utilizando la variable CSS --second-bg--color */
+}
+
+.services-container {
+    display: grid; /* Utiliza el modelo de caja de cuadrícula para el diseño del contenido */
+    grid-template-columns: repeat(3, 1fr); /* Establece una cuadrícula con 3 columnas de igual tamaño */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    gap: 2.5rem; /* Añade un espacio de 2.5rem entre los elementos */
+    margin-top: 60px; /* Añade un margen superior de 60px */
+}
+
+.service-box {
+    background-color: var(--main--color); /* Establece el color de fondo utilizando la variable CSS --main--color */
+    height: 300px; /* Establece la altura a 300px */
+    border-radius: 3rem; /* Redondea las esquinas del elemento */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando el usuario pasa el cursor sobre el elemento */
+    transition: 0.3s ease; /* Añade una transición suave de 0.3 segundos para cualquier cambio de estilo */
+}
+
+.service-box:hover {
+    background: white; /* Cambia el color de fondo a blanco cuando el usuario pasa el cursor sobre el elemento */
+    color: var(--main--color); /* Cambia el color del texto utilizando la variable CSS --main--color */
+    transform: scale(1.03); /* Aumenta el tamaño del elemento en un 3% cuando el usuario pasa el cursor sobre él */
+    border: 1px solid var(--main--color); /* Añade un borde de 1px con el color principal */
+}
+
+.service-box .service-info {
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    flex-direction: column; /* Establece la dirección del diseño a columna */
+    text-align: left; /* Alinea el texto a la izquierda */
+    max-height: 300px; /* Establece la altura máxima a 300px */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 5rem; /* Añade un relleno de 5rem */
+}
+
+.service-info h4 {
+    font-size: 2.5rem; /* Establece el tamaño de la fuente a 2.5rem */
+    font-weight: 500; /* Establece el peso de la fuente a 500 (semi-negrita) */
+}
+.service-info p {
+    font-size: 1.6rem; /* Establece el tamaño de la fuente del párrafo a 1.6rem */
+    font-weight: 400; /* Establece el peso de la fuente del párrafo a 400 (normal) */
+    max-height: 100px; /* Establece la altura máxima del párrafo a 100px */
+    margin: auto; /* Centra el párrafo horizontalmente */
+}
+
+/* Imágenes en forma de cuadrícula */
+.image-grid {
+    text-align: center; /* Centra el texto dentro del contenedor */
+    padding: 50px 20px; /* Añade un relleno de 50px en la parte superior e inferior y 20px en los lados */
+    background-color: var(--bg--color); /* Establece el color de fondo utilizando la variable CSS --bg--color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra alrededor del contenedor */
+    margin: 20px; /* Añade un margen de 20px alrededor del contenedor */
+    border-radius: 8px; /* Redondea las esquinas del contenedor */
+}
+
+.image-grid h2 {
+    margin-bottom: 50px; /* Añade un margen inferior de 50px al título */
+    font-size: 30px; /* Establece el tamaño de la fuente del título a 30px */
+    color: var(--main--color); /* Establece el color del título utilizando la variable CSS --main--color */
+}
+
+.grid-container {
+    display: grid; /* Utiliza el modelo de caja de cuadrícula para el diseño del contenido */
+    grid-template-columns: repeat(3, 1fr); /* Establece una cuadrícula con 3 columnas de igual tamaño */
+    gap: 5px; /* Añade un espacio de 15px entre los elementos de la cuadrícula */
+}
+
+.grid-item {
+    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
+    border-radius: 8px; /* Redondea las esquinas del contenedor */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra alrededor del contenedor */
+    aspect-ratio: 1 / 1; /* Mantiene una relación de aspecto 1:1 (cuadrada) */
+}
+
+.grid-item img {
+    width: 100%; /* Establece el ancho de la imagen al 100% del contenedor */
+    height: 100%; /* Establece la altura de la imagen al 100% del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+    display: block; /* Hace que la imagen sea un elemento de bloque */
+    transition: transform 0.3s; /* Añade una transición suave de 0.3 segundos para cualquier cambio de transformación */
+    transform: scale(0.5); /* Escala la imagen al 50% de su tamaño original */
+}
+
+.grid-item img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen en un 5% cuando el usuario pasa el cursor sobre ella */
+}
+
+/* Estilos para el formulario */
+.mainform {
+    display: flex; /* Utiliza el modelo de caja flexible para el diseño del contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 20px; /* Añade un relleno de 20px alrededor del contenedor */
+    background-color: var(--bg--color); /* Establece el color de fondo utilizando la variable CSS --bg--color */
+    margin-top: 150px; /* Añade un margen superior de 150px */
+}
+
+form {
+    background: var(--text--color); 
+    padding: 40px; /* Relleno interno del formulario */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    max-width: 500px; /* Ancho máximo del formulario */
+    width: 100%; /* Asegura que el formulario ocupe el 100% del contenedor */
+}
+
+/* Título del formulario */
+.title h2 {
+    text-align: center; /* Centra el texto del título */
+    font-size: 2rem; /* Tamaño de fuente del título */
+    margin-bottom: 20px; /* Espacio inferior del título */
+    color: var(--main--color); /* Color del título */
+}
+
+/* Estilos para los campos del formulario */
+.form {
+    margin-bottom: 20px; /* Espacio inferior entre los campos */
+}
+
+.form label {
+    display: block; /* Hace que el label ocupe toda la línea */
+    margin-bottom: 5px; /* Espacio inferior del label */
+    font-size: 1rem; /* Tamaño de fuente del label */
+    color: #333; /* Color del label */
+}
+
+.form input,
+.form textarea {
+    width: 100%; /* Ancho completo del campo */
+    padding: 10px; /* Relleno interno del campo */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente del campo */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total */
+}
+
+.form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Estilos para los términos y condiciones */
+.form-termsAndConditions {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-termsAndConditions input {
+    margin-right: 10px; /* Espacio a la derecha del checkbox */
+}
+
+.form-termsAndConditions label {
+    font-size: 0.9rem; /* Tamaño de fuente del label */
+    color: var(--bg--color); /* Color del label */
+}
+
+.form-termsAndConditions a {
+    margin-left: 5px; /* Espacio a la izquierda del enlace */
+    color: var(--main--color); /* Color del enlace */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.form-termsAndConditions a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Botón de envío */
+.form-boton input {
+    background: var(--bg--color); /* Color de fondo del botón */
+    color: var(--main--color); /* Color del texto del botón */
+    padding: 10px 20px; /* Relleno interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+
+/*Contacto*/
+ /*Contacto*/
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 4rem 0; /* Añade un relleno de 4rem en la parte superior e inferior */
+    background-color: var(--bg--color); /* Establece el color de fondo utilizando la variable CSS --bg--color */
+    text-align: center; /* Centra el texto dentro de la sección */
+}
+
+.contact .container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 85px;
+    padding: 20px; 
+    background-color: var(--bg--color); 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact .container h2 {
+    font-size: 2.5rem; /* Ajusta el tamaño de la fuente del h2 */
+    margin-bottom: 1rem;
+    margin: 1rem; /* Añade un margen de 1rem alrededor de los elementos */
+    background-color:var(--main--color);
+    border-radius: 5px;
+}
+
+.contact .container p {
+    font-size: 1.6rem; /* Ajusta el tamaño de la fuente del párrafo */
+    margin-bottom: 2rem;
+    margin: 1rem; /* Añade un margen de 1rem alrededor de los elementos */
+}
+
+.contactInfo {
+    display: flex;
+    justify-content: space-around; /* Distribuye el espacio sobrante entre los elementos hijos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas si es necesario */
+    margin-bottom: 4rem; /* Añade un margen inferior de 4rem */
+}
+
+.contactInfo .text {
+    flex: 1; /* Permite que los elementos crezcan y ocupen el espacio disponible */
+    text-align: center;
+    min-width: 250px; /* Establece el ancho mínimo de los elementos */
+    margin: 1rem; /* Añade un margen de 1rem alrededor de los elementos */
+    background-color:var(--main--color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contactInfo .text h3 {
+    font-size: 2rem; /* Establece el tamaño de la fuente del subtítulo*/
+    color: var(--text--color); /* Establece el color del subtítulo */
+    margin-bottom: 1rem; /* Añade un margen inferior  */
+}
+
+.contactInfo .text p {
+    font-size: 1.4rem; /* Establece el tamaño de la fuente del párrafo a 1.4rem */
+    color: var(--text--color); /* Establece el color del texto utilizando la variable CSS --text--color */
+}
+
+.contactInfo2 {
+    margin-bottom: 4rem; /* Añade un margen inferior de 4rem */
+    margin: 1rem; /* Añade un margen de 1rem alrededor de los elementos */
+    background-color:var(--main--color);
+    border-radius: 5px;
+}
+
+.contactInfo2 h2 {
+    font-size: 2.5rem; /* Establece el tamaño de la fuente del título a 2.5rem */
+    color: var(--text--color); /* Establece el color del título */
+    margin-bottom: 2rem; /* Añade un margen inferior de 2rem */
+}
+
+.contact iframe {
+    width: 100%; /* Establece el ancho del iframe al 100% del contenedor */
+    max-width: 600px; /* Establece el ancho máximo del iframe a 600px */
+    height: 450px; /* Establece la altura del iframe a 450px */
+    border: 0; /* Elimina el borde del iframe */
+    margin: auto; /* Centra el iframe horizontalmente */
+}
+/*Footer*/
+.footer {
+    position: absolute; 
+    bottom: 0; /* Coloca el pie de página en la parte inferior */
+    width: 100%; /* Establece el ancho del pie de página al 100% del contenedor */
+    padding: 40px 0; /* Añade un relleno de 40px en la parte superior e inferior */
+    align-self: flex-end; /* Alinea el pie de página al final del contenedor flex */
+    background-color: var(--main--color); /* Establece el color de fondo del pie de página utilizando la variable CSS --main--color */
+    margin-top: auto; /* Empuja el pie de página hacia abajo si hay espacio disponible */
+    
+}
+
+.footer .social {
+    text-align: center; /* Centra el texto dentro del contenedor de redes sociales */
+    padding-bottom: 25px; /* Añade un relleno inferior de 25px */
+    color:var(--bg--color); 
+}
+
+.footer .social a {
+    font-size: 25px; /* Establece el tamaño de la fuente de los enlaces de redes sociales a 25px */
+    color: var(--bg--color); 
+    border: 2px solid black; /* Añade un borde de 2px sólido y negro a los enlaces */
+    width: 42px; /* Establece el ancho de los enlaces a 42px */
+    height: 42px; /* Establece la altura de los enlaces a 42px */
+    display: inline-block; /* Hace que los enlaces sean elementos en línea con comportamiento de bloque */
+    text-align: center; /* Centra el texto dentro de los enlaces */
+    border-radius: 50%; /* Redondea las esquinas de los enlaces al 50%, haciéndolos circulares */
+    margin: 0 10px; /* Añade un margen de 10px a los lados de los enlaces */
+    transition: 0.3s ease; /* Añade una transición suave de 0.3 segundos para cualquier cambio de estilo */
+}
+
+.footer .social a:hover {
+    transform: scale(1.2) translateY(-5px); /* Aumenta el tamaño de los enlaces en un 20% y los desplaza 5px hacia arriba cuando el usuario pasa el cursor sobre ellos */
+    background: black; /* Cambia el fondo de los enlaces a negro cuando el usuario pasa el cursor sobre ellos */
+    color: var(--main--color); /* Cambia el color del texto de los enlaces al color principal definido en la variable CSS --main--color cuando el usuario pasa el cursor sobre ellos */
+}
+
+.footer ul {
+    margin-top: 0; /* Elimina el margen superior de la lista */
+    padding: 0; /* Elimina el relleno de la lista */
+    font-size: 18px; /* Establece el tamaño de la fuente de los elementos de la lista a 18px */
+    line-height: 1.8; /* Establece la altura de línea de los elementos de la lista a 1.8 */
+    margin-bottom: 0; /* Elimina el margen inferior de la lista */
+    text-align: center; /* Centra el texto dentro de la lista */
+}
+
+.footer ul li a {
+    color: black; /* Establece el color del texto de los enlaces de la lista a negro */
+    border-bottom: 3px solid black; /* Añade un borde inferior de 3px sólido y negro a los enlaces */
+    transition: 0.3s ease; /* Añade una transición suave de 0.3 segundos para cualquier cambio de estilo */
+}
+
+.footer ul li a:hover {
+    border-bottom: 3px solid var(--bg--color); /* Mantiene el borde inferior de 3px sólido y negro cuando el usuario pasa el cursor sobre los enlaces */
+}
+
+.footer .copyright {
+    margin: 50px; /* Añade un margen de 50px alrededor del texto de copyright */
+    text-align: center; /* Centra el texto de copyright */
+    font-size: 16px; /* Establece el tamaño de la fuente del texto de copyright a 16px */
+    color: var(--bg--color); /* Establece el color del texto de copyright a negro */
+}
+
+
+
+/*Responsive*/
+@media (max-width: 995px) {
+    #menu-icon {
+        display: block; /* Muestra el icono del menú cuando el ancho de la pantalla es menor o igual a 995px */
+    }
+    .navbar {
+        position: absolute; /* Posiciona la barra de navegación de forma absoluta */
+        top: 100%; /* Coloca la barra de navegación justo debajo del encabezado */
+        right: 0; /* Alinea la barra de navegación al borde derecho */
+        width: 40%; /* Establece el ancho de la barra de navegación al 40% del contenedor */
+        border-left: 3px solid var(--main--color); /* Añade un borde izquierdo de 3px con el color principal */
+        border-bottom: 3px solid var(--main--color); /* Añade un borde inferior de 3px con el color principal */
+        border-top-left-radius: 2rem; /* Redondea la esquina superior izquierda de la barra de navegación */
+        padding: 1rem 3%; /* Añade un relleno de 1rem en la parte superior e inferior y 3% en los lados */
+        background-color: var(--second-bg--color); /* Establece el color de fondo de la barra de navegación */
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1); /* Añade un borde superior de 0.1rem con un color negro semitransparente */
+        display: none; /* Oculta la barra de navegación por defecto */
+    }
+    .navbar.active {
+        display: block; /* Muestra la barra de navegación cuando tiene la clase 'active' */
+    }
+    .navbar a {
+        display: block; /* Hace que los enlaces de la barra de navegación ocupen toda la línea */
+        font-size: 2rem; /* Establece el tamaño de la fuente de los enlaces a 2rem */
+        margin: 3rem 0; /* Añade un margen vertical de 3rem a los enlaces */
+    }
+    .navbar a:hover,
+    .navbar .active {
+        padding: 1rem; /* Añade un relleno de 1rem a los enlaces cuando el usuario pasa el cursor sobre ellos o cuando están activos */
+        border-radius: 0.5rem; /* Redondea las esquinas de los enlaces */
+        border-bottom: 0.5rem solid var(--main--color); /* Añade un borde inferior de 0.5rem con el color principal a los enlaces */
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .home {
+        gap: 4rem; /* Reduce el espacio entre los elementos a 4rem cuando el ancho de la pantalla es menor o igual a 1000px */
+    }
+}
+
+@media (max-width: 995px) {
+    .home {
+        flex-direction: column; /* Cambia la dirección del diseño a columna cuando el ancho de la pantalla es menor o igual a 995px */
+        margin: 5rem 4rem; /* Añade un margen de 5rem en la parte superior e inferior y 4rem en los lados */
+    }
+    .home .home-content h3 {
+        font-size: 2.5rem; /* Reduce el tamaño de la fuente del subtítulo a 2.5rem */
+    }
+    .home-content h1 {
+        font-size: 5rem; /* Reduce el tamaño de la fuente del título a 5rem */
+    }
+    .home-img img {
+        width: 70vw; /* Establece el ancho de la imagen al 70% del ancho de la ventana */
+        margin-top: 4rem; /* Añade un margen superior de 4rem */
+    }
+}
+/* Estilos responsivos para pantallas con un ancho máximo de 991px */
+@media (max-width: 991px) {
+    section {
+        padding: 10rem 3% 2rem; /* Ajusta el relleno de la sección a 10rem en la parte superior, 3% en los lados y 2rem en la parte inferior */
+    }
+    .services {
+        padding-bottom: 7rem; /* Añade un relleno inferior de 7rem a la sección de servicios */
+    }
+}
+
+/* Estilos responsivos para pantallas con un ancho máximo de 895px */
+@media (max-width: 895px) {
+    .services h2 {
+        margin-bottom: 3rem; /* Añade un margen inferior de 3rem al título de la sección de servicios */
+    }
+    .services-container {
+        grid-template-columns: repeat(1, 1fr); /* Cambia la cuadrícula a una sola columna */
+    }
+}
+@media (max-width: 991px) {
+    header {
+        padding: 2rem 3%; /* Añade un relleno de 2rem en la parte superior e inferior y 3% en los lados al encabezado */
+    }
+    section {
+        padding: 10rem 3% 2rem; /* Ajusta el relleno de la sección a 10rem en la parte superior, 3% en los lados y 2rem en la parte inferior */
+    }
+    .services {
+        padding-bottom: 7rem; /* Añade un relleno inferior de 7rem a la sección de servicios */
+    }
+    .footer {
+        padding: 2rem 3%; /* Añade un relleno de 2rem en la parte superior e inferior y 3% en los lados al pie de página */
+    }
+}

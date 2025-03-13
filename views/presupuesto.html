@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mayonico</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Majo.</a>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="productos.html">Servicios</a>
+            <a href="presupuesto.html" class="active">Presupuesto</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <!--Formulario-->
+    <div class="mainform">
+        <form>
+            <div class="title">
+                <h2>Presupuesto</h2>
+            </div>
+
+            <div class="form"> 
+             <label for="myname">Nombre</label>
+             <input type="text" id="myname" required>
+            </div>
+
+            <div class="form">
+             <label for="email">Email</label>
+             <input type="text" id="email" required>
+            </div>
+
+            <div class="form">
+            <label for="mobile">Teléfono</label>
+            <input type="text" id="mobile" required>
+            </div>
+
+            <div class="form">
+            <label>Solicite más información</label>
+            <textarea name="textarea" rows="5" cols="50"></textarea>
+            </div>
+        
+             <div class="form-termsAndConditions">
+            <input type="checkbox" id="termsAndConditions" required aria-required="true"> 
+            <label for="termsAndConditions">He leído y acepto los</label>
+            <a href="#">Términos y Condiciones</a>
+            </div>
+
+            <div class="form-boton">
+            <input type="submit" value="ENVIAR" >
+          </div>
+     </form>
+    </div>
+    
+    <!--Footer-->
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.github.com/"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.tiktok.com/"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+        <ul class="list">
+            <li><a href="#"></a>FAQ.</li>
+            <li><a href="#"></a>Service.</li>
+            <li><a href="#"></a>About.</li>
+            <li><a href="#"></a>San Juan Bosco, Almería.</li>
+            <li><a href="#"></a>Privacy Policies.</li>
+        </ul>
+    </footer>
+    <script src="../js/javascript.js"></script>
+</body>
+</html>
